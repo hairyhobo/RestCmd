@@ -18,7 +18,6 @@ C:\Users\mikaeli\source\repos\RestCmd\RestCmd\bin\Debug\netcoreapp3.1\runtimes\u
 C:\Users\mikaeli\source\repos\RestCmd\RestCmd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\mikaeli\source\repos\RestCmd\RestCmd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\mikaeli\source\repos\RestCmd\RestCmd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\mikaeli\source\repos\RestCmd\RestCmd\obj\Debug\netcoreapp3.1\RestCmd.csprojAssemblyReference.cache
 C:\Users\mikaeli\source\repos\RestCmd\RestCmd\obj\Debug\netcoreapp3.1\RestCmd.AssemblyInfoInputs.cache
 C:\Users\mikaeli\source\repos\RestCmd\RestCmd\obj\Debug\netcoreapp3.1\RestCmd.AssemblyInfo.cs
 C:\Users\mikaeli\source\repos\RestCmd\RestCmd\obj\Debug\netcoreapp3.1\RestCmd.csproj.CoreCompileInputs.cache

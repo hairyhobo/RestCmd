@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Xml;
-using Newtonsoft.Json;
 using RestSharp;
+using Newtonsoft.Json;
 
 namespace RestCmd
 {
@@ -37,7 +34,10 @@ namespace RestCmd
 
 
                 string errorType = "";
-                logger("Starting up");
+                string previousTenant = "";
+
+                
+                logger("Starting up ");
                 logger("Reading configuration file");
                 RestTool r = new RestTool();
                 logger("Read configuration file");
@@ -45,10 +45,12 @@ namespace RestCmd
                 r.CheckDir();
 
                 DirectoryInfo dir = new DirectoryInfo(r._dataCollection["RESTFolder"]);
-                
+
+               
+
                 logger("Files to process: " + dir.GetFiles("*.xml").Length);
                 
-                string previousTenant = "";
+                
 
                 foreach (var file in dir.EnumerateFiles())
                 {
@@ -124,20 +126,31 @@ namespace RestCmd
 
             static void HandleError(string errorType,string fileName,string directoryPath)
             {
-                if(!Directory.Exists(directoryPath + "\\Error\\"))
+                string year = DateTime.Today.ToString().Substring(0, 4);
+                string month = DateTime.Today.ToString().Substring(5, 2);
+                string day = DateTime.Today.ToString().Substring(8, 2);
+                
+
+                if (!Directory.Exists(directoryPath + "\\Error\\" + year + "\\" + month + "\\" + day))
                 {
-                    Directory.CreateDirectory(directoryPath + "\\Error\\");
+                    Directory.CreateDirectory(directoryPath + "\\Error\\" + year + "\\" + month + "\\" + day);
                 }
-                System.IO.File.Move(directoryPath + "\\" + fileName, directoryPath + "\\Error\\" + errorType + fileName);
+                System.IO.File.Move(directoryPath + "\\" + fileName, directoryPath + "\\Error\\" + year + "\\" + month + "\\" + day + "\\" + errorType +"_" + fileName);
             }
 
             static void ArchiveFile(string fileName,string directoryPath)
             {
-                if (!Directory.Exists(directoryPath + "\\Archive\\"))
+
+                string year = DateTime.Today.ToString().Substring(0, 4);
+                string month = DateTime.Today.ToString().Substring(5, 2);
+                string day = DateTime.Today.ToString().Substring(8, 2);
+
+                if (!Directory.Exists(directoryPath + "\\Archive\\" + year + "\\" + month + "\\" + day))
                 {
-                    Directory.CreateDirectory(directoryPath + "\\Archive\\");
+                    Directory.CreateDirectory(directoryPath + "\\Archive\\" + year + "\\" + month + "\\" + day);
                 }
-                System.IO.File.Move(directoryPath+"\\" + fileName, directoryPath + "\\Archive\\" + fileName);
+                System.IO.File.Move(directoryPath+"\\" + fileName, directoryPath + "\\Archive\\" + year + "\\" + month + "\\" + day + "\\" + fileName);
+                
             }
 
        

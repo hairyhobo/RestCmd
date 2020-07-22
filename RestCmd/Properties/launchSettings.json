@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "RestCmd": {
+      "commandName": "Project"
+    }
+  }
+}
